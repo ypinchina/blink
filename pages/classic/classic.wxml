@@ -1,3 +1,5 @@
-<!--pages/classic/classic.wxml-->
-<text>pages/classic/classic.wxml</text>
-<!-- 骨架文件 -->
+<view class="container">
+  <view class="chunk color1">1</view>
+  <view class="chunk color2">2</view>
+  <view class="chunk color3">3</view>
+</view>

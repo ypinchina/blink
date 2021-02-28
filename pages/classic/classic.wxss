@@ -1,1 +1,22 @@
 /* pages/classic/classic.wxss */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 400px;
+  background-color: #ccc;
+}
+.chunk {
+  /* display: inline-block; */
+  width: 100px;
+  height: 100px;
+}
+.color1 {
+  background-color: #f00;
+}
+.color2 {
+  background-color: #a3ea01;
+}
+.color3 {
+  background-color: blue;
+}
