@@ -4,14 +4,25 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    // 对外暴露的属性
+    count: {
+      type: Number,
+      value: 0 // 选填，默认给0
+    },
+    likeFlag: {
+      type: Boolean,
+      value: false // 选填,默认为false
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    likeCount: 0
+    // count: 99,
+    // likeFlag: false,
+    isLike: 'images/like.png',
+    noLike: 'images/like@dis.png'
   },
 
   /**
@@ -19,7 +30,13 @@ Component({
    */
   methods: {
     onLike(event) {
-      console.log(event)
+      var likeFlag = this.properties.likeFlag,
+      count = this.properties.count
+      likeFlag ? count-- : count ++
+      this.setData({
+        count: count,
+        likeFlag: !likeFlag
+      })
     }
   }
 })
