@@ -16,6 +16,12 @@ class HTTP {
       success: (res) => {
         if (res.statusCode.toString().startsWith('2')) {
           success(res)
+        } else {
+          wx.showToast({
+            title: '错误',
+            icon: 'none',
+            duration: 2000
+          })
         }
       },
       fail: (err) => {
