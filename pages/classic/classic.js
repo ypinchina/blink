@@ -1,4 +1,6 @@
 // pages/classic/classic.js
+import { HTTP } from '../../util/http'
+let http = new HTTP()
 Page({
 
   /**
@@ -12,9 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: 'http://bl.7yue.pro/v1/classic/latest' 
+    http.request({
+      url: '/classic/latest',
+      method: 'GET',
+      success: (res) => {
+        console.log(res)
+      }
     })
+    // wx.request({
+    //   url: '/classic/latest' ,
+    //   header: {
+    //     appKey: "RdshydjBvcYZhMZC"
+    //   },
+    //   success: (res) => {
+    //     console.log(res.data)
+    //   }
+    // })
   },
 
   /**
