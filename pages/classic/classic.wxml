@@ -1,1 +1,1 @@
-<yp-like></yp-like>
+<yp-like count="{{classic.fav_nums}}" likeFlag="{{classic.like_status}}"></yp-like>
