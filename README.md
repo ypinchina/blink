@@ -12,3 +12,5 @@
 1、组件只能继承color和font相关CSS属性
 2、page能继承几乎所有的css属性
 3.bind:tap点击事件的:可以去掉，但是一般情况不建议去掉；bind与catch的区别，catch不阻止元素事件冒泡，bind阻止事件冒泡
+
+旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E

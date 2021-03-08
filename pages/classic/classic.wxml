@@ -1,2 +1,3 @@
+<yp-epsoide index="{{classic.index}}"></yp-epsoide>
 <yp-like count="{{classic.fav_nums}}" likeFlag="{{classic.like_status}}"></yp-like>
 <yp-movie image="{{classic.image}}" content="{{classic.content}}"></yp-movie>

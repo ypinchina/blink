@@ -19,8 +19,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // count: 99,
-    // likeFlag: false,
     isLike: 'images/like.png',
     noLike: 'images/like@dis.png'
   },
