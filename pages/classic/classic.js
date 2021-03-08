@@ -1,6 +1,8 @@
 // pages/classic/classic.js
 import { ClassicModel } from '../../models/classic'
-let classic = new ClassicModel()
+import { LikeModel } from '../../models/like'
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 Page({
 
   /**
@@ -14,13 +16,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    classic.getLatest(res => {
+    classicModel.getLatest(res => {
       this.setData({
         classic: res.data
       })
     })
   },
-
+  onLike: function(event) {
+    let likeStatus = event.detail.likeStatus
+    let url = likeStatus === 'like' ? '/like' : '/like/cancel'
+    likeModel.like(url, {art_id: this.data.classic.id, type: this.data.classic.type})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

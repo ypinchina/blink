@@ -35,6 +35,10 @@ Component({
         count: count,
         likeFlag: !likeFlag
       })
+      let likeStatus = likeFlag ? 'dislike' : 'like'
+      this.triggerEvent('like', {
+        likeStatus
+      }, {})
     }
   }
 })
