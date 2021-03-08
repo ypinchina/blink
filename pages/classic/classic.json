@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "yp-like": "/components/like/index" 
+    "yp-like": "/components/like/index",
+    "yp-movie": "/components/classic/movie/movie"
   }
 }
