@@ -20,7 +20,7 @@ class HTTP {
       },
       success: (res) => {
         if (res.statusCode.toString().startsWith('2')) {
-          success(res)
+          success && success(res)
         } else {
           this._error_code(res.data.error_code)
         }
