@@ -1,8 +1,8 @@
 <view class="container">
   <view class="header">
     <yp-epsoide class="epsoide" index="{{classic.index}}"></yp-epsoide>
-    <yp-like class="like" count="{{classic.fav_nums}}" likeFlag="{{classic.like_status}}"></yp-like>
+    <yp-like class="like" count="{{classic.fav_nums}}" likeFlag="{{classic.like_status}}" bind:like='onLike'></yp-like>
   </view>
   <yp-movie image="{{classic.image}}" content="{{classic.content}}"></yp-movie>
-  <yp-navi class="navi" title="{{classic.title}}" latest="{{latest}}" first="{{first}}"></yp-navi>
+  <yp-navi class="navi" title="{{classic.title}}" latest="{{latest}}" first="{{first}}" bind:prePage='pre' bind:nextPage='next'></yp-navi>
 </view>

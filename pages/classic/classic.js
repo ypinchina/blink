@@ -29,10 +29,10 @@ Page({
     let url = likeStatus === 'like' ? '/like' : '/like/cancel'
     likeModel.like(url, {art_id: this.data.classic.id, type: this.data.classic.type})
   },
-  prePage: function(event) {
+  pre: function(event) {
     console.log(event)
   },
-  nextPage: function(event) {
+  next: function(event) {
     console.log(event)
   },
   /**
