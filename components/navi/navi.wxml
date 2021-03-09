@@ -1,0 +1,5 @@
+<view class="navi-container">
+  <image class='icon' src="{{latest ? disLeft : leftImg}}"></image>
+  <text>{{title}}</text>
+  <image class='icon' src="{{first ? disright : rightImg}}"></image>
+</view>
