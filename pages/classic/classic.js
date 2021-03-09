@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classic: null
+    classic: null,
+    first: false,
+    latest: true
   },
 
   /**
@@ -26,6 +28,12 @@ Page({
     let likeStatus = event.detail.likeStatus
     let url = likeStatus === 'like' ? '/like' : '/like/cancel'
     likeModel.like(url, {art_id: this.data.classic.id, type: this.data.classic.type})
+  },
+  prePage: function(event) {
+    console.log(event)
+  },
+  nextPage: function(event) {
+    console.log(event)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
