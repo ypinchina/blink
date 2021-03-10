@@ -1,5 +1,5 @@
-/* components/epsoide/epsoide.wxss */
-.epsoide-container {
+/* components/episode/episode.wxss */
+.episode-container {
   display: flex;
   flex-direction: row;  
 }

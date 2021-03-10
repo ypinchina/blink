@@ -2,7 +2,7 @@
   "usingComponents": {
     "yp-like": "/components/like/index",
     "yp-movie": "/components/classic/movie/movie",
-    "yp-epsoide": "/components/epsoide/epsoide",
+    "yp-episode": "/components/episode/episode",
     "yp-navi": "/components/navi/navi"
   }
 }

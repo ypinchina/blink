@@ -1,4 +1,4 @@
-<view class="epsoide-container">
+<view class="episode-container">
   <view class="index-container">
     <text class="No">No.</text>
     <text class="index">{{_index}}</text>
