@@ -13,4 +13,8 @@
 2、page能继承几乎所有的css属性
 3.bind:tap点击事件的:可以去掉，但是一般情况不建议去掉；bind与catch的区别，catch不阻止元素事件冒泡，bind阻止事件冒泡
 
+
+第九章： behaviors用法，behaviors将component方法里面的对象共同的东西抽象出来，独立成一个js文件，提供给需要复用的组件使用。behaviors是多继承，与python一样。
+而java,c#是单继承， 单继承比多继承简单。而ES6 Class的extends继承也是单继承的方式。
+
 旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E
