@@ -15,6 +15,7 @@
 
 
 第九章： behaviors用法，behaviors将component方法里面的对象共同的东西抽象出来，独立成一个js文件，提供给需要复用的组件使用。behaviors是多继承，与python一样。
-而java,c#是单继承， 单继承比多继承简单。而ES6 Class的extends继承也是单继承的方式。
+而java,c#是单继承， 单继承比多继承简单。而ES6 Class的extends继承也是单继承的方式。behavior同名属性和方法会覆盖，但是生命周期函数不是被覆盖，而小程序会依次调用
+各个父类的同名生命周期，再调用子类的生命周期
 
 旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E

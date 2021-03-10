@@ -29,15 +29,29 @@ Page({
     let url = likeStatus === 'like' ? '/like' : '/like/cancel'
     likeModel.like(url, {art_id: this.data.classic.id, type: this.data.classic.type})
   },
-  pre: function(event) {
-    console.log(event)
-  },
   next: function(event) {
+    console.log(event)
+    classicModel.previous(this.data.classic.index, res =>{
+      this.setData({
+        classic: res.data,
+        first: classicModel.isFirst(res.data.index),
+        latest: classicModel.isLatest(res.data.index)
+      })
+    })
+  },
+  pre: function(event) {
     console.log(event)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  methods: {
+    isFirst() {
+    },
+    isLatest() {
+
+    }
+  },
   onReady: function () {
 
   },

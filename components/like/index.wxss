@@ -4,11 +4,11 @@
   flex-direction: row;
   padding: 10rpx;
 }
-.container image {
+.container .image {
   width: 32rpx;
   height: 28rpx;
 }
-.container text {
+.container .likeCount {
   font-family: "PingFangSC-Thin";
   font-size: 24rpx;
   line-height: 1;

@@ -1,17 +1,10 @@
-// components/classic/movie/movie.js
+import classicBeh from '../classic-beh'
 Component({
   /**
    * 组件的属性列表
    */
+  behaviors: [classicBeh],
   properties: {
-    image: {
-      type: String,
-      default: ''
-    },
-    content: {
-      type: String,
-      default: ''
-    }
   },
 
   /**
