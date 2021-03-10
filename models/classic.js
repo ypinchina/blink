@@ -10,15 +10,6 @@ class ClassicModel extends HTTP {
       }
     })
   }
-  previous(index, sCallback) {
-    this.request({
-      url: `/classic/${index}/previous`,
-      method: 'GET',
-      success: (res) => {
-        sCallback(res)
-      }
-    })
-  }
   isFirst(index) {
     return index === 1 ? true : false
   }
@@ -26,11 +17,20 @@ class ClassicModel extends HTTP {
     let latestIndex = this._getLatestIndex()
     return latestIndex === index ? true : false
   }
+  getClassic(index, previousOrNext, sCallback) {
+    this.request({
+      url: `/classic/${index}/${previousOrNext}`,
+      method: 'GET',
+      success: (res) => {
+        sCallback(res)
+      }
+    })
+  }
   _setLatestIndex(index) {
     wx.setStorageSync('latestIndex', index)
   }
   _getLatestIndex() {
-    wx.getStorageSync('latestIndex')
+    return wx.getStorageSync('latestIndex')
   }
 }
 export { ClassicModel }

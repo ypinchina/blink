@@ -30,8 +30,8 @@ Page({
     likeModel.like(url, {art_id: this.data.classic.id, type: this.data.classic.type})
   },
   next: function(event) {
-    console.log(event)
-    classicModel.previous(this.data.classic.index, res =>{
+    // console.log(event)
+    classicModel.getClassic(this.data.classic.index, 'previous', res =>{
       this.setData({
         classic: res.data,
         first: classicModel.isFirst(res.data.index),
@@ -40,18 +40,18 @@ Page({
     })
   },
   pre: function(event) {
-    console.log(event)
+    // console.log(event)
+    classicModel.getClassic(this.data.classic.index, 'next', res =>{
+      this.setData({
+        classic: res.data,
+        first: classicModel.isFirst(res.data.index),
+        latest: classicModel.isLatest(res.data.index)
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  methods: {
-    isFirst() {
-    },
-    isLatest() {
-
-    }
-  },
   onReady: function () {
 
   },
