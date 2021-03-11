@@ -18,13 +18,26 @@ class ClassicModel extends HTTP {
     return latestIndex === index ? true : false
   }
   getClassic(index, previousOrNext, sCallback) {
-    this.request({
-      url: `/classic/${index}/${previousOrNext}`,
-      method: 'GET',
-      success: (res) => {
-        sCallback(res)
-      }
-    })
+    let _index = index
+    if (previousOrNext === 'previous') {
+      _index--
+    } else {
+      _index++
+    }
+    console.log(_index)
+    let classicNeed = wx.getStorageSync(`_classic_${_index}`)
+    if (!classicNeed) {
+      this.request({
+        url: `/classic/${index}/${previousOrNext}`,
+        method: 'GET',
+        success: (res) => {
+          wx.setStorageSync(`_classic_${_index}`, res)
+          sCallback(res)
+        }
+      })
+    } else {
+      sCallback(classicNeed)
+    }
   }
   _setLatestIndex(index) {
     wx.setStorageSync('latestIndex', index)
