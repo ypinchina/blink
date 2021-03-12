@@ -1,5 +1,5 @@
 import classicBeh from '../classic-beh'
-const gBgM = wx.getBackgroundAudioManager()
+var gBgM = wx.getBackgroundAudioManager()
 Component({
   /**
    * 组件的属性列表
@@ -28,8 +28,8 @@ Component({
           playStatus: true
         })
         gBgM.src = this.properties.musicSrc
-        console.log(gBgM.src)
         console.log(this.properties.musicSrc)
+        console.log(gBgM.src)
       } else {
         gBgM.pause()
         this.setData({
