@@ -2,6 +2,8 @@
   "usingComponents": {
     "yp-like": "/components/like/index",
     "yp-movie": "/components/classic/movie/movie",
+    "yp-music": "/components/classic/music/music",
+    "yp-essay": "/components/classic/essay/essay",
     "yp-episode": "/components/episode/episode",
     "yp-navi": "/components/navi/navi"
   }

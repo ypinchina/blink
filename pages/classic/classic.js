@@ -8,10 +8,14 @@ Page({
   /**
    * 页面的初始数据
    */
+  
   data: {
     classic: null,
     first: false,
-    latest: true
+    latest: true,
+    likeCount: 0,
+    likeFlag: false,
+    hidden: false
   },
 
   /**
@@ -20,7 +24,9 @@ Page({
   onLoad: function (options) {
     classicModel.getLatest(res => {
       this.setData({
-        classic: res.data
+        classic: res.data,
+        likeCount: res.data.fav_nums,
+        likeFlag: res.data.like_status
       })
     })
   },
@@ -30,8 +36,19 @@ Page({
     likeModel.like(url, {art_id: this.data.classic.id, type: this.data.classic.type})
   },
   next: function(event) {
-    // console.log(event)
-    classicModel.getClassic(this.data.classic.index, 'previous', res =>{
+    this._updateClassic('previous')
+  },
+  pre: function(event) {
+    this._updateClassic('next')
+  },
+  _updateClassic(previousOrNext) {
+    if (this.data.first && previousOrNext === 'previous') {
+      return // 最后一页不许下翻
+    } else if (this.data.latest && previousOrNext === 'next') {
+      return // 最前一页不许上翻
+    }
+    classicModel.getClassic(this.data.classic.index, previousOrNext, res => {
+      this._getLikeStatus(res.data.type, res.data.id)
       this.setData({
         classic: res.data,
         first: classicModel.isFirst(res.data.index),
@@ -39,14 +56,15 @@ Page({
       })
     })
   },
-  pre: function(event) {
-    // console.log(event)
-    classicModel.getClassic(this.data.classic.index, 'next', res =>{
+  _getLikeStatus(type, id) {
+    likeModel.likeStatus({type, id}, res => {
       this.setData({
-        classic: res.data,
-        first: classicModel.isFirst(res.data.index),
-        latest: classicModel.isLatest(res.data.index)
+        likeCount: res.data.fav_nums,
+        likeFlag: res.data.like_status
       })
+      // this.setData({
+      //   res
+      // })
     })
   },
   /**

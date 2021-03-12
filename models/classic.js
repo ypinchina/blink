@@ -19,12 +19,7 @@ class ClassicModel extends HTTP {
   }
   getClassic(index, previousOrNext, sCallback) {
     let _index = index
-    if (previousOrNext === 'previous') {
-      _index--
-    } else {
-      _index++
-    }
-    console.log(_index)
+    previousOrNext === 'previous' ? _index-- : _index++
     let classicNeed = wx.getStorageSync(`_classic_${_index}`)
     if (!classicNeed) {
       this.request({

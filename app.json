@@ -3,7 +3,7 @@
     "pages/classic/classic"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#FFFF00",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "ypinchina",
     "navigationBarTextStyle": "black",
     "navigationStyle": "default",

@@ -7,6 +7,16 @@ class LikeModel extends HTTP {
       data
     })
   }
+  likeStatus(data, sCallback) {
+    let { type, id } = data
+    this.request({
+      url: `/classic/${type}/${id}/favor`,
+      method: 'GET',
+      success: res => {
+        sCallback(res)
+      }
+    })
+  }
 }
 
 export { LikeModel }
