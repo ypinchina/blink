@@ -4,7 +4,7 @@
     <yp-like class="like" count="{{likeCount}}" likeFlag="{{likeFlag}}" bind:like='onLike'></yp-like>
   </view>
   <yp-movie img="{{classic.image}}" content="{{classic.content}}" hidden="{{classic.type != 100}}"></yp-movie>
-  <yp-music img="{{classic.image}}" content="{{classic.content}}" hidden="{{classic.type != 200}}" musicSrc="{{classic.url}}"></yp-music>
+  <yp-music img="{{classic.image}}" content="{{classic.content}}" wx:if="{{classic.type == 200}}" musicSrc="{{classic.url}}"></yp-music>
   <yp-essay img="{{classic.image}}" content="{{classic.content}}" hidden="{{classic.type != 300}}"></yp-essay>
   <yp-navi class="navi" title="{{classic.title}}" latest="{{latest}}" first="{{first}}" bind:prePage='pre' bind:nextPage='next'></yp-navi>
 </view>

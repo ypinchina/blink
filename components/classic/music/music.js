@@ -1,5 +1,5 @@
 import classicBeh from '../classic-beh'
-var gBgM = wx.getBackgroundAudioManager()
+let mMgr = wx.getBackgroundAudioManager()
 Component({
   /**
    * 组件的属性列表
@@ -17,7 +17,9 @@ Component({
     pauseSrc: './images/player@pause.png',
     playSrc: './images/player@play.png'
   },
-
+  attached() {
+    this._playingStatus()
+  },
   /**
    * 组件的方法列表
    */
@@ -27,13 +29,26 @@ Component({
         this.setData({
           playStatus: true
         })
-        gBgM.src = this.properties.musicSrc
-        console.log(this.properties.musicSrc)
-        console.log(gBgM.src)
+        var src = this.properties.musicSrc
+        mMgr.src = src
       } else {
-        gBgM.pause()
+        mMgr.pause()
         this.setData({
           playStatus: false
+        })
+      }
+    },
+    _playingStatus() {
+      if (!mMgr.playStatus) {
+        // 全局小程序只有一个mMgr对象
+        this.setData({
+          playStatus: false
+        })
+        return
+      }
+      if (mMgr.src === this.properties.musicSrc) {
+        this.setData({
+          playStatus: true
         })
       }
     }
