@@ -18,19 +18,19 @@ Component({
     playSrc: './images/player@play.png'
   },
   attached() {
-    this._playingStatus()
+    this._recoverStatus()
   },
   /**
    * 组件的方法列表
    */
   methods: {
-    onPlay(event) {
+    playMusic(event) {
       if (!this.data.playStatus) {
         this.setData({
           playStatus: true
         })
-        var src = this.properties.musicSrc
-        mMgr.src = src
+        mMgr.src = this.properties.musicSrc
+        mMgr.title = 'need title' // 这个问题困扰了很久 不设置title 就无法给音乐播放管理器实例src赋值并播放音乐！！！
       } else {
         mMgr.pause()
         this.setData({
@@ -38,8 +38,8 @@ Component({
         })
       }
     },
-    _playingStatus() {
-      if (!mMgr.playStatus) {
+    _recoverStatus() {
+      if (mMgr.paused) {
         // 全局小程序只有一个mMgr对象
         this.setData({
           playStatus: false
@@ -51,6 +51,20 @@ Component({
           playStatus: true
         })
       }
+    },
+    _asda() {
+      mMgr.onPlay(() => {
+        this._recoverStatus()
+      })
+      mMgr.onStop(() => {
+        this._recoverStatus()
+      })
+      mMgr.onEnded(() => {
+        this._recoverStatus()
+      })
+      mMgr.onPause(() => {
+        this._recoverStatus()
+      })
     }
   }
 })
