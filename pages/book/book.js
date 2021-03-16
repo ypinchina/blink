@@ -1,4 +1,4 @@
-// pages/book/book.js
+// pages/book.js
 Page({
 
   /**
@@ -12,7 +12,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const promise = new Promise((resolve, reject) => {
+      // promise三种状态 1.pendding(进行中，等待状态) 2.fullfilled(成功，已实现) 3.reject(拒绝)
+      wx.getSystemInfo({
+        success: res => resolve(res),
+        fail: err => reject(err)
+      })
+    })
+    promise.then(res => { console.log(res) }, err => { console.log(err) })
   },
 
   /**

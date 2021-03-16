@@ -21,5 +21,9 @@
 第十章： hidden与wx:if条件渲染的区别，两者都可以条件渲染，hidden类似与v-show对于切换的消耗性能低，对于初次渲染的消耗性能高，wx:if则与之相反;
 
         小程序提供了一套动画API
-
+第十一章： 
+1.promise学习
+  // 纯粹的callback 回调地狱 return
+  // promise 多个异步等待合并 不需要层层传递callback
+  // async await es2017 最合理的处理回调的方案
 旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E
