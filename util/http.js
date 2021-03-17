@@ -34,7 +34,7 @@ class HTTP {
     if (!code) {
       code = 1
     }
-    let message = tips[code]
+    let message = tips[code] ? tips[code] : tips[1]
     wx.showToast({
       'title': message,
       'icon': 'none',
