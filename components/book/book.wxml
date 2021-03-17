@@ -1,2 +1,10 @@
-<!--components/book/book.wxml-->
-<text>components/book/book.wxml</text>
+<view class="container">
+  <image src="{{bookItem.image}}"></image>
+  <view class="description">
+    <text class="title">{{bookItem.title}}</text>
+    <text class="author">{{bookItem.author}}</text>
+    <view class="foot">
+      <text class="footer">{{bookItem.fav_nums}}  喜欢</text>      
+    </view>
+  </view>
+</view>
