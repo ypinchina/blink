@@ -8,8 +8,8 @@
   <view class="sub-container">
     <image src="../../images/book/quality.png" class="head-img"></image>'
     <view class="book-container">
-      <block wx:for="{{hot_bookList}}">
-        <yp-book bookItem="{{item}}"></yp-book>
+      <block wx:for="{{hot_bookList}}" wx:key="index">
+        <yp-book bookItem="{{item}}" class="book-cmp"></yp-book>
       </block>
     </view>
   </view>
