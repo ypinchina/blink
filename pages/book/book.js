@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    hot_bookList: []
   },
 
   /**
@@ -22,10 +22,10 @@ Page({
    */
   onReady: function () {
     const result = bookModel.bookList()
-    console.log(bookModel)
-    console.log(result)
     result.then(res => {
-      console.log(res)
+      this.setData({
+        hot_bookList: res.data
+      })
     })
   },
 
