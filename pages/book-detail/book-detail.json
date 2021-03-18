@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "yp-tag": "../../components/tag/tag"
+  }
 }

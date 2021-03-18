@@ -4,4 +4,12 @@
     <text class="title">{{bookDetailObj.title}}</text>
     <text class="author">{{bookDetailObj.author}}</text>
   </view>
+  <view class="sub-container">
+    <text class="headline">短评</text>
+    <view class="tag-container">
+      <block wx:for="{{bookeComments}}" wx:key="index">
+        <yp-tag text="{{item.content}}"></yp-tag>
+      </block>
+    </view>
+  </view>
 </view>
