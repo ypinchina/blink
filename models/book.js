@@ -9,7 +9,7 @@ class BookModel extends HTTP {
   }
   bookComments(id) {
     // 短评 api
-    return this.request(`/book/${id}/shot_comment`)
+    return this.request(`/book/${id}/short_comment`)
   }
   bookLike(id) {
     return this.request(`/book/${id}/favor`)

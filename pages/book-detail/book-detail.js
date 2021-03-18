@@ -22,11 +22,11 @@ Page({
     const bookInfo = bookModel.bookDetail(bid)
     bookInfo.then(res => {
       this.setData({
-        bookDetailObj: res
+        bookDetailObj: res.data
       })
     })
     const comments = bookModel.bookComments(bid)
-    // const likeInfo = bookModel.bookLike(bid)
+    const likeInfo = bookModel.bookLike(bid)
   },
 
   /**

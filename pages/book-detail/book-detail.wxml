@@ -1,1 +1,7 @@
-
+<view class="container">
+  <view class="head">
+    <image src="{{bookDetailObj.image}}"></image>
+    <text class="title">{{bookDetailObj.title}}</text>
+    <text class="author">{{bookDetailObj.author}}</text>
+  </view>
+</view>

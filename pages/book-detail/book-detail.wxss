@@ -1,1 +1,6 @@
 /* pages/book-detail/book-detail.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
