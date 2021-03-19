@@ -50,3 +50,8 @@
   margin-right: 15rpx;
   margin-bottom: 10rpx;
 }
+.nums {
+  font-size: 22rpx;
+  margin-right: 10rpx;
+  color: #aaa;
+}

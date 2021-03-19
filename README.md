@@ -31,5 +31,6 @@
 1.wx:key 一：对于遍历的是对象（Object）,则填入对象的唯一属性作为标识为优（如id）; 
 二:wx:key对于提高小程序的渲染有积极意义；
 三： 对于遍历的数据是数字(Number)或者字符串(String),则填入wx:key="*this";
+四： slot插槽的学习，增加组件的可延展性和灵活性。启用插槽：在组件的js文件中配置options对象下的multipleSlots: true才能启用插槽。
 
 旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E
