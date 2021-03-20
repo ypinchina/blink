@@ -33,4 +33,10 @@
 三： 对于遍历的数据是数字(Number)或者字符串(String),则填入wx:key="*this";
 四： slot插槽的学习，增加组件的可延展性和灵活性。启用插槽：在组件的js文件中配置options对象下的multipleSlots: true才能启用插槽。
 
+第十三章： 
+ 1. wxs:  wxs是小程序内置的独有的类似ES5的编译语言，用于在wxml文件中使用'js'。 没出现wsx之前，小程序一直被
+ 诟病无法写filter过滤器，wxs出现以后这个问题得以解决。
+ 2. 要在<text></text>里展示出&nbsp;的效果 则需要在text标签里加入decode=true的属性
+
+
 旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E

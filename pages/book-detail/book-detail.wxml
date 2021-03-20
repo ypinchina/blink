@@ -1,3 +1,4 @@
+<wxs src='../../util/filter.wxs' module='filter' />
 <view class="container">
   <view class="head">
     <image src="{{bookDetailObj.image}}"></image>
@@ -7,11 +8,18 @@
   <view class="sub-container">
     <text class="headline">短评</text>
     <view class="tag-container">
-      <block wx:for="{{bookeComments}}" wx:key="index">
+      <block wx:for="{{filter.limit(bookeComments, 10)}}" wx:key="index">
         <yp-tag ex-class="{{index === 0 ? 'exClass1': '' || index === 1 ? 'exClass2' : ''}}" text="{{item.content}}">
           <text slot="after" class="nums">+{{item.nums}}</text>
         </yp-tag>
       </block>
     </view>
+  </view>
+  <view class="sub-container">
+    <view class="headline">内容简介</view>
+    <text class="content" decode="true">{{filter.lineFeed(bookDetailObj.summary)}}</text>
+  </view>
+  <view class="sub-container">
+    <view class="headline">书本信息</view>
   </view>
 </view>

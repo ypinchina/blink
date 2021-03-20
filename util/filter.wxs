@@ -1,0 +1,15 @@
+var lineFeed = function (content) {
+  if (!content) {
+    return
+  }
+  var reg = getRegExp('\\\\n', 'g')
+  return content.replace(reg, '\n' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+}
+var limit = function(arr, length) {
+  return arr.splice(0, length)
+}
+
+module.exports = {
+  lineFeed: lineFeed,
+  limit: limit
+}

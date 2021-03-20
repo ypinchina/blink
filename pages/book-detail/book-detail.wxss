@@ -35,6 +35,11 @@
   background-color: #fff;
   padding: 30rpx;
 }
+.sub-container .content {
+  text-indent: 58rpx;
+  font-size: 29rpx;
+  font-weight: 500;
+}
 .headline {
   font-size: 30rpx;
   font-weight: 600;
