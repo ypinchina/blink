@@ -1,5 +1,5 @@
 <!--components/tag/tag.wxml-->
-<view class="tag">
+<view class="tag ex-class">
   <text>{{text}}</text>
   <slot name='after'></slot>
 </view>

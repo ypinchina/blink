@@ -55,3 +55,15 @@
   margin-right: 10rpx;
   color: #aaa;
 }
+/* .tag-container > yp-tag:first-child > view  {
+  background-color: #fffbdd;
+}
+.tag-container > yp-tag:nth-child(2) > view  {
+  background-color: #effbff;
+} */
+.exClass1 {
+  background-color: #fffbdd!important;
+}
+.exClass2 {
+  background-color: #effbff!important;
+}

@@ -27,7 +27,6 @@ Page({
     })
     const comments = bookModel.bookComments(bid)
     comments.then(res => {
-      console.log(res)
       this.setData({
         bookeComments: res.data.comments
       })
