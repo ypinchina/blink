@@ -21,5 +21,21 @@
   </view>
   <view class="sub-container">
     <view class="headline">书本信息</view>
+    <view class="detail-container">
+      <view class="vertical description">
+        <text>出版社</text>
+        <text>出版年</text>
+        <text>页数</text>
+        <text>定价</text>
+        <text>装帧</text>
+      </view>
+      <view class="vertical">
+        <text>{{bookDetailObj.publisher}}</text>
+        <text>{{bookDetailObj.pubdate}}</text>
+        <text>{{bookDetailObj.pages}}</text>
+        <text>{{bookDetailObj.price}}</text>
+        <text>{{bookDetailObj.binding}}</text>
+      </view>
+    </view>
   </view>
 </view>
