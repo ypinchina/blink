@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "yp-tag": "../../components/tag/tag"
+    "yp-tag": "../../components/tag/tag",
+    "yp-like": "../../components/like/index"
   }
 }

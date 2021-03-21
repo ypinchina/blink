@@ -9,7 +9,7 @@
     <text class="headline">短评</text>
     <view class="tag-container">
       <block wx:for="{{filter.limit(bookeComments, 10)}}" wx:key="index">
-        <yp-tag ex-class="{{index === 0 ? 'exClass1': '' || index === 1 ? 'exClass2' : ''}}" text="{{item.content}}">
+        <yp-tag ex-class="{{filter.tagFilter(index)}}" text="{{item.content}}">
           <text slot="after" class="nums">+{{item.nums}}</text>
         </yp-tag>
       </block>
@@ -37,5 +37,13 @@
         <text>{{bookDetailObj.binding}}</text>
       </view>
     </view>
+  </view>
+</view>
+<view class="post-container">
+  <view class="post-fake">
+    <text>输入短评</text>
+  </view>
+  <view class="like-container">
+    <yp-like class="like" count="{{likeCount}}" likeFlag="{{likeFlag}}" bind:like='onLike'></yp-like>
   </view>
 </view>

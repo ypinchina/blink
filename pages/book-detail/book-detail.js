@@ -1,6 +1,8 @@
 // pages/book-detail/book-detail.js
 import BookModel from '../../models/book'
+import { LikeModel } from '../../models/like'
 const bookModel = new BookModel()
+let likeModel = new LikeModel()
 Page({
 
   /**
@@ -10,8 +12,15 @@ Page({
     bookDetailObj: {},
     bookeComments: [],
     likeCount: 0,
-    likeStaus: false
+    likeFlag: false
   },
+
+  onLike: function(event) {
+    let likeStatus = event.detail.likeStatus
+    let url = likeStatus === 'like' ? '/like' : '/like/cancel'
+    likeModel.like(url, {art_id: this.data.bookDetailObj.id, type: 400})
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -32,6 +41,12 @@ Page({
       })
     })
     const likeInfo = bookModel.bookLike(bid)
+    likeInfo.then(res => {
+      this.setData({
+        likeCount: res.data.fav_nums,
+        likeFlag: res.data.like_status
+      })
+    })
   },
 
   /**

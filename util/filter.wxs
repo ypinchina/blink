@@ -8,8 +8,12 @@ var lineFeed = function (content) {
 var limit = function(arr, length) {
   return arr.splice(0, length)
 }
+var tagFilter = function(index) {
+  return index === 0 ? 'exClass1': '' || index === 1 ? 'exClass2' : ''
+}
 
 module.exports = {
   lineFeed: lineFeed,
-  limit: limit
+  limit: limit,
+  tagFilter: tagFilter
 }

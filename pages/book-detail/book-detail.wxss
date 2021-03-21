@@ -90,3 +90,26 @@
   margin-right: 30rpx;
   color: #999;
 }
+.post-container {
+  height: 100rpx;
+  position: fixed;
+  display: flex;
+  width: 690rpx;
+  background-color: #fff;
+  bottom: 0;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30rpx;
+  justify-content: space-between;
+}
+.post-fake {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60rpx;
+  width: 460rpx;
+  border: 1px solid #999;
+  border-radius: 15px;
+  font-size: 22rpx;
+  padding-left: 20rpx;
+}
