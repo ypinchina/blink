@@ -12,9 +12,19 @@ Page({
     bookDetailObj: {},
     bookeComments: [],
     likeCount: 0,
-    likeFlag: false
+    likeFlag: false,
+    commentsFlag: false
   },
-
+  showComments() {
+    this.setData({
+      commentsFlag: true
+    })
+  },
+  hideComments() {
+    this.setData({
+      commentsFlag: false
+    })
+  },
   onLike: function(event) {
     let likeStatus = event.detail.likeStatus
     let url = likeStatus === 'like' ? '/like' : '/like/cancel'
