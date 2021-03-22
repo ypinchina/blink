@@ -7,12 +7,15 @@
   </view>
   <view class="sub-container">
     <text class="headline">短评</text>
-    <view class="tag-container">
+    <view class="tag-container" wx:if="{{bookeComments.length}}">
       <block wx:for="{{filter.limit(bookeComments, 10)}}" wx:key="index">
         <yp-tag ex-class="{{filter.tagFilter(index)}}" text="{{item.content}}">
           <text slot="after" class="nums">+{{item.nums}}</text>
         </yp-tag>
       </block>
+    </view>
+    <view class="tag-container" wx:else>
+      <text class="no-comment">暂无短评</text>
     </view>
   </view>
   <view class="sub-container">
@@ -50,15 +53,16 @@
 </view>
 <view class="posting-container" wx:if="{{commentsFlag}}">
   <view class="post-header">
-    <text>仅可点击标签+1</text>
+    <text wx:if="{{bookeComments.length}}">仅可点击标签+1</text>
+    <text wx:else>暂无短评</text>
     <text class="cancel" bind:tap='hideComments'>取消</text>
   </view>
   <view class="comment-container">
     <block wx:for="{{filter.limit(bookeComments, 3)}}" wx:key="index">
-        <yp-tag ex-class="{{filter.tagFilter(index)}}" text="{{item.content}}">
+        <yp-tag ex-class="{{filter.tagFilter(index)}}" text="{{item.content}}" bind:posting='onPost'>
           <text slot="after" class="nums">+{{item.nums}}</text>
         </yp-tag>
       </block>
   </view>
-  <input type="text" placeholder="短评最多12个字" class="post" />
+  <input bindconfirm="onPost" type="text" placeholder="短评最多12个字" class="post" maxlength="12"/>
 </view>

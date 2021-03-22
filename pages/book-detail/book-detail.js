@@ -30,8 +30,26 @@ Page({
     let url = likeStatus === 'like' ? '/like' : '/like/cancel'
     likeModel.like(url, {art_id: this.data.bookDetailObj.id, type: 400})
   },
-
-
+  onPost: function(event) {
+    const submitComment = event.detail.content || event.detail.value
+    if (!submitComment) {
+      return
+    }
+    const result = bookModel.submitShoutComment(this.data.bookDetailObj.id, submitComment)
+    result.then(res => {
+      this.data.bookeComments.unshift({
+        nums: 1,
+        content: submitComment
+      })
+      wx.showToast({
+        title: '添加短评成功',
+      })
+      this.setData({
+        bookeComments: this.data.bookeComments,
+        commentsFlag: false
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,5 +1,5 @@
 <!--components/tag/tag.wxml-->
-<view class="tag ex-class">
+<view class="tag ex-class" bind:tap='posting'>
   <text>{{text}}</text>
   <slot name='after'></slot>
 </view>

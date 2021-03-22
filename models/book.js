@@ -14,6 +14,9 @@ class BookModel extends HTTP {
   bookLike(id) {
     return this.request(`/book/${id}/favor`)
   }
+  submitShoutComment(book_id, content) {
+    return this.request(`/book/add/short_comment`, 'POST', { book_id, content })
+  }
 }
 
 export default BookModel
