@@ -39,6 +39,7 @@
     </view>
   </view>
 </view>
+<yp-mask wx:if="{{commentsFlag}}"></yp-mask>
 <view class="post-container" wx:if="{{!commentsFlag}}">
   <view class="post-fake" bind:tap='showComments'>
     <text>输入短评</text>

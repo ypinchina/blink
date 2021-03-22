@@ -3,29 +3,34 @@
   background-color: #f5f5f5;
   width: 100%;
 }
+
 .head {
   background-color: #fff;
   padding-top: 40rpx;
   padding-bottom: 40rpx;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
 }
+
 .title {
   color: #2f2f2f;
   margin-top: 20rpx;
   font-size: 38rpx;
   font-weight: 600;
 }
+
 .author {
   font-size: 28rpx;
   color: #999;
 }
+
 .head image {
   width: 200rpx;
   height: 300rpx;
   box-shadow: 2px 2px 3px #e3e3e3;
 }
+
 .sub-container {
   width: 690rpx;
   display: flex;
@@ -35,31 +40,37 @@
   background-color: #fff;
   padding: 30rpx;
 }
+
 .sub-container .content {
   text-indent: 58rpx;
   font-size: 29rpx;
   font-weight: 500;
 }
+
 .headline {
   font-size: 30rpx;
   font-weight: 600;
   color: #2f2f2f;
-  margin-bottom: 20rpx; 
+  margin-bottom: 20rpx;
 }
+
 .tag-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .tag-container view {
   margin-right: 15rpx;
   margin-bottom: 10rpx;
 }
+
 .nums {
   font-size: 22rpx;
   margin-right: 10rpx;
   color: #aaa;
 }
+
 /* .tag-container > yp-tag:first-child > view  {
   background-color: #fffbdd;
 }
@@ -67,10 +78,11 @@
   background-color: #effbff;
 } */
 .exClass1 {
-  background-color: #fffbdd!important;
+  background-color: #fffbdd !important;
 }
+
 .exClass2 {
-  background-color: #effbff!important;
+  background-color: #effbff !important;
 }
 
 .detail-container {
@@ -82,14 +94,17 @@
   font-size: 28rpx;
   color: #666;
 }
+
 .vertical {
   display: flex;
   flex-direction: column;
 }
+
 .description {
   margin-right: 30rpx;
   color: #999;
 }
+
 .post-container {
   height: 100rpx;
   position: fixed;
@@ -103,6 +118,7 @@
   padding: 0 30rpx;
   justify-content: space-between;
 }
+
 .post-fake {
   display: flex;
   flex-direction: row;
@@ -125,6 +141,7 @@
   width: 100%;
   z-index: 999;
 }
+
 .post-header {
   width: 100%;
   border-bottom: 1px solid #f5f5f5;
@@ -136,7 +153,7 @@
   justify-content: space-between;
 }
 
-.post-header > text:first-child {
+.post-header>text:first-child {
   font-size: 28rpx;
   color: #bbb;
 }
@@ -148,10 +165,14 @@
 .post-header text {
   padding: 25rpx;
 }
+
 .posting-container .comment-container {
   width: 690rpx;
   padding: 40rpx 30rpx 0 30rpx;
+  display: flex;
+  justify-content: space-around;
 }
+
 .post {
   width: 690rpx;
   margin: 30rpx auto;
