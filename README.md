@@ -38,5 +38,8 @@
  诟病无法写filter过滤器，wxs出现以后这个问题得以解决。
  2. 要在<text></text>里展示出&nbsp;的效果 则需要在text标签里加入decode=true的属性
 
+第十四章：
+  1.Promise.all([promise实例1， promise实例2， promise实例3 。。。]).then(res) 全部执行完进入res也是个数组，对应all里面数组的实例顺序
+  2.Promise.race （竞争）则是数组里只要有最快的完成了就返回那个实例请求的回调
 
 旧岛接口文档地址：  https://github.com/No-bb-just-do-it/old-land-flask-api/blob/master/README.md#%E8%BF%9B%E8%A1%8C%E7%82%B9%E8%B5%9E

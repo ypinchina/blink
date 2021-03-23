@@ -56,27 +56,20 @@ Page({
   onLoad: function (options) {
     // 页面间的传参都在options里进行接收
     const bid = options.bid
+    wx.showLoading()
     const bookInfo = bookModel.bookDetail(bid)
-    bookInfo.then(res => {
-      this.setData({
-        bookDetailObj: res.data
-      })
-    })
     const comments = bookModel.bookComments(bid)
-    comments.then(res => {
-      this.setData({
-        bookeComments: res.data.comments
-      })
-    })
     const likeInfo = bookModel.bookLike(bid)
-    likeInfo.then(res => {
+    Promise.all([bookInfo, comments, likeInfo]).then(res => {
       this.setData({
-        likeCount: res.data.fav_nums,
-        likeFlag: res.data.like_status
+        bookDetailObj: res[0].data,
+        bookeComments: res[1].data.comments,
+        likeCount: res[2].data.fav_nums,
+        likeFlag: res[2].data.like_status
       })
+      wx.hideLoading()
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
