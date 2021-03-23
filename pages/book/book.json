@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "yp-book": "/components/book/book"
+    "yp-book": "/components/book/book",
+    "yp-search": "/components/search/search"
   }
 }
