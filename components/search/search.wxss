@@ -61,3 +61,30 @@
   margin-left: 12px;
   margin-right: 8px;
 }
+.history {
+  width: 690rpx;
+  margin: 40rpx 0 20rpx 0;
+  display: flex;
+  font-size: 14px;
+  margin-top:160rpx;
+  flex-direction: column;
+}
+
+.hot-search{
+  margin-top:70rpx;
+}
+
+.title {
+  line-height: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-left:100px; */
+}
+.chunk {
+  height: 15px;
+  width: 5px;
+  background-color: #000;
+  display: inline-block;
+  margin-right: 10px;
+}

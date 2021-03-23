@@ -1,4 +1,6 @@
 // components/search/search.js
+import { KeywordModel } from '../../models/searc'
+const keywordModel = new KeywordModel()
 Component({
   /**
    * 组件的属性列表
@@ -20,6 +22,10 @@ Component({
   methods: {
     onCancel() {
       this.triggerEvent('cancel', {})
+    },
+    submitSearch(event) {
+      const inputVal = event.detail.value
+      keywordModel.setHistory(inputVal)
     }
   }
 })
