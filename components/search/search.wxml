@@ -12,6 +12,11 @@
       <view class="title">
         <view class="chunk"></view>
         <text>历史搜索</text>
+        <view class="history-list">
+          <block wx:for="{{historyList}}" wx:key="index">
+            <yp-tag text="{{item}}"></yp-tag>
+          </block>
+        </view>
       </view>
     </view>
     <view class="history hot-search">
