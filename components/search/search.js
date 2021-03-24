@@ -12,9 +12,13 @@ Component({
    * 组件的初始数据
    */
   data: {
-    historyList: keywordModel.getHistory()
+    historyList: []
   },
-
+  attached() {
+    this.setData({
+      historyList: keywordModel.getHistory()
+    })
+  },
   /**
    * 组件的方法列表
    */

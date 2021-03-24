@@ -88,3 +88,13 @@
   display: inline-block;
   margin-right: 10px;
 }
+.tags {
+  /* padding-left:15px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: flex-start;  */
+  margin-top: 24rpx;
+  padding-left: 15px;
+  width: 630rpx;
+}
