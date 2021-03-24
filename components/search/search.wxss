@@ -98,3 +98,7 @@
   padding-left: 15px;
   width: 630rpx;
 }
+.tags view {
+  margin-right: 15rpx;
+  margin-bottom: 10rpx; 
+}

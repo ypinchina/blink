@@ -1,5 +1,5 @@
 // components/search/search.js
-import { KeywordModel } from '../../models/searc'
+import { KeywordModel } from '../../models/search'
 const keywordModel = new KeywordModel()
 Component({
   /**
@@ -12,11 +12,17 @@ Component({
    * 组件的初始数据
    */
   data: {
-    historyList: []
+    historyList: [],
+    hotList: []
   },
   attached() {
     this.setData({
       historyList: keywordModel.getHistory()
+    })
+    keywordModel.getHotSearch().then(res => {
+      this.setData({
+        hotList: res.data.hot
+      })
     })
   },
   /**
@@ -28,7 +34,18 @@ Component({
     },
     submitSearch(event) {
       const inputVal = event.detail.value
-      keywordModel.setHistory(inputVal)
+      
+      if (!inputVal) {
+        return
+      }
+      keywordModel.searchSubmit({
+        'q': inputVal,
+        'summary': 1,
+        'start': 0
+      }).then(res => {
+        keywordModel.setHistory(inputVal)
+        console.log(res.data)
+      })
     }
   }
 })

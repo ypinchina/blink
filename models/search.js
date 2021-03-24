@@ -1,4 +1,5 @@
-class KeywordModel {
+import {HTTP} from '../util/http-p'
+class KeywordModel extends HTTP{
   key = 'q'
   maxLen = 10
   getHistory() {
@@ -19,7 +20,12 @@ class KeywordModel {
       wx.setStorageSync(this.key, historyList)
     }
   }
-  getHotSearch() {}
+  getHotSearch() {
+    return this.request('/book/hot_keyword')
+  }
+  searchSubmit(data) {
+    return this.request('/book/search', 'GET', data)
+  }
 }
 
 export { KeywordModel }
