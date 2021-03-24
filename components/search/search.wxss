@@ -102,3 +102,12 @@
   margin-right: 15rpx;
   margin-bottom: 10rpx; 
 }
+.book-container {
+  width: 570rpx;
+  margin-top:100rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 90rpx 0 90rpx;
+  justify-content: space-between;
+}

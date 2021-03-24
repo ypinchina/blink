@@ -2,12 +2,12 @@
   <view class="header">
     <view class="search-container">
       <image class="icon" src="images/search.png" />
-      <input type="text" bindconfirm="submitSearch" class="bar" auto-focus="true" />
-      <image class="cancel-img" src="images/cancel.png" />
+      <input value="{{q}}" type="text" bindconfirm="submitSearch" class="bar" auto-focus="true" />
+      <image bind:tap="clearSearch" class="cancel-img" src="images/cancel.png" />
     </view>
     <view class="cancel" bind:tap="onCancel">取消</view>
   </view>
-  <view>
+  <view wx:if="{{!searching}}">
     <view class="history">
       <view class="title">
         <view class="chunk"></view>
@@ -15,7 +15,7 @@
       </view>
       <view class="tags">
         <block wx:for="{{historyList}}" wx:key="index">
-          <yp-tag text="{{item}}"></yp-tag>
+          <yp-tag text="{{item}}" bind:posting="submitSearch"></yp-tag>
         </block>
       </view>
     </view>
@@ -26,9 +26,14 @@
       </view>
       <view class="tags">
         <block wx:for="{{hotList}}" wx:key="index">
-          <yp-tag text="{{item}}"></yp-tag>
+          <yp-tag text="{{item}}" bind:posting="submitSearch"></yp-tag>
         </block>
       </view>
     </view>
+  </view>
+  <view wx:else class="book-container">
+    <block wx:for="{{bookList}}" wx:key="{{item.id}}">
+      <yp-book bookItem="{{item}}" class="book-cmp"></yp-book>
+    </block>
   </view>
 </view>
