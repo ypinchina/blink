@@ -8,7 +8,8 @@ Page({
    */
   data: {
     hot_bookList: [],
-    searching: false
+    searching: false,
+    bottomFlag: false
   },
   onSearch() {
     this.setData({
@@ -79,5 +80,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onReachBottom: function() {
+    this.setData({
+      bottomFlag: !this.data.bottomFlag
+    })
   }
 })

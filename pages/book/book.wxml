@@ -14,4 +14,4 @@
     </view>
   </view>
 </view>
-<yp-search wx:else bind:cancel="onCancel"></yp-search>
+<yp-search wx:else bind:cancel="onCancel" touchBottom="{{bottomFlag}}"></yp-search>

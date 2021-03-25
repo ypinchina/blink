@@ -6,6 +6,22 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    touchBottom: {
+      default: false,
+      type: Boolean,
+      observer: function() {
+        keywordModel.searchSubmit({
+          'q': this.data.q,
+          'summary': 1,
+          'start': this.data.bookList.length
+        }).then(res => {
+          const temArr = this.data.bookList.concat(res.data.books)
+          this.setData({
+            bookList: temArr
+          })
+        })
+      }
+    }
   },
 
   /**
