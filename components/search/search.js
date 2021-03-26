@@ -9,13 +9,18 @@ Component({
     touchBottom: {
       default: false,
       type: Boolean,
-      observer: function() {
+      observer: () => {
+        if (this.data.loadingFlag) {
+          return
+        }
+        this.data.loadingFlag = true
         keywordModel.searchSubmit({
           'q': this.data.q,
           'summary': 1,
           'start': this.data.bookList.length
         }).then(res => {
           const temArr = this.data.bookList.concat(res.data.books)
+          this.data.loadingFlag = false
           this.setData({
             bookList: temArr
           })
@@ -32,7 +37,8 @@ Component({
     hotList: [],
     searching: false,
     q: '',
-    bookList: []
+    bookList: [],
+    loadingFlag: false
   },
   attached() {
     this.setData({
