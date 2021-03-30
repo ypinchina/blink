@@ -1,5 +1,6 @@
 // components/search/search.js
 import { KeywordModel } from '../../models/search'
+import { paginationBehavior } from '../behaviors/pagination'
 const keywordModel = new KeywordModel()
 Component({
   /**
@@ -9,22 +10,24 @@ Component({
     touchBottom: {
       default: false,
       type: Boolean,
-      observer: () => {
+      observer: function() {
         if (this.data.loadingFlag) {
           return
-        }
-        this.data.loadingFlag = true
-        keywordModel.searchSubmit({
-          'q': this.data.q,
-          'summary': 1,
-          'start': this.data.bookList.length
-        }).then(res => {
-          const temArr = this.data.bookList.concat(res.data.books)
-          this.data.loadingFlag = false
-          this.setData({
-            bookList: temArr
+        } 
+        if (this.hasMore()) {
+          this.data.loadingFlag = true
+          keywordModel.searchSubmit({
+            'q': this.data.q,
+            'summary': 1,
+            'start': this.currentArrLength()
+          }).then(res => {
+            this.setTotal(res.data.total)
+            this.setMoreArr(res.data.books)
+            this.data.loadingFlag = false
           })
-        })
+        } else {
+          return
+        }
       }
     }
   },
@@ -37,9 +40,9 @@ Component({
     hotList: [],
     searching: false,
     q: '',
-    bookList: [],
     loadingFlag: false
   },
+  behaviors: [paginationBehavior],
   attached() {
     this.setData({
       historyList: keywordModel.getHistory()
@@ -54,16 +57,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    clearSearch1() {
-      console.log(1)
+    clearSearch() {
       // 点击搜索框的叉按钮，清空搜索框
       this.setData({
-        searching: true,
+        searching: false,
         q: ''
       })
     },
     onCancel() {
-      this.triggerEvent('cancel', {})
+      this.triggerEvent('cancel', {}, {})
     },
     submitSearch(event) {
       const inputVal = event.detail.value || event.detail.content
@@ -83,6 +85,7 @@ Component({
         this.setData({
           bookList: res.data.books
         })
+        this.setTotal(res.data.total)
       })
     }
   }

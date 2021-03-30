@@ -32,7 +32,7 @@
     </view>
   </view>
   <view wx:else class="book-container">
-    <block wx:for="{{bookList}}" wx:key="{{item.id}}">
+    <block wx:for="{{bookList}}" wx:key="id">
       <yp-book bookItem="{{item}}" class="book-cmp"></yp-book>
     </block>
   </view>
