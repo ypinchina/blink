@@ -10,25 +10,7 @@ Component({
     touchBottom: {
       default: false,
       type: Boolean,
-      observer: function() {
-        if (this.data.loadingFlag) {
-          return
-        } 
-        if (this.hasMore()) {
-          this.data.loadingFlag = true
-          keywordModel.searchSubmit({
-            'q': this.data.q,
-            'summary': 1,
-            'start': this.currentArrLength()
-          }).then(res => {
-            this.setTotal(res.data.total)
-            this.setMoreArr(res.data.books)
-            this.data.loadingFlag = false
-          })
-        } else {
-          return
-        }
-      }
+      observer: '_loadMore' 
     }
   },
 
@@ -87,6 +69,34 @@ Component({
         })
         this.setTotal(res.data.total)
       })
+    },
+    _loadMore() {
+      if (this.data.loadingFlag) {
+        return
+      } 
+      if (this.hasMore()) {
+        this._lock()
+        keywordModel.searchSubmit({
+          'q': this.data.q,
+          'summary': 1,
+          'start': this.currentArrLength()
+        }).then(res => {
+          this.setTotal(res.data.total)
+          this.setMoreArr(res.data.books)
+          this._unlocked()
+        }, () => {
+          this._unlocked()
+          // 防止断网后重连网络不能请求造成的死锁
+        })
+      } else {
+        return
+      }
+    },
+    _lock() {
+      this.data.loadingFlag = true
+    },
+    _unlocked() {
+      this.data.loadingFlag = false
     }
   }
 })
