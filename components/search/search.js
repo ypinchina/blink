@@ -21,8 +21,10 @@ Component({
     historyList: [],
     hotList: [],
     searching: false,
+    bookList: [],
     q: '',
-    loadingFlag: false
+    loadingFlag: false,
+    loadingCenter: false
   },
   behaviors: [paginationBehavior],
   attached() {
@@ -43,11 +45,22 @@ Component({
       // 点击搜索框的叉按钮，清空搜索框
       this.setData({
         searching: false,
-        q: ''
+        q: '',
+        bookList: []
       })
     },
     onCancel() {
       this.triggerEvent('cancel', {}, {})
+    },
+    _showLoadingCenter() {
+      this.setData({
+        "loadingCenter": true
+      })
+    },
+    _hideLoadingCenter() {
+      this.setData({
+        "loadingCenter": false
+      })
     },
     submitSearch(event) {
       const inputVal = event.detail.value || event.detail.content
@@ -58,6 +71,7 @@ Component({
         searching: true,
         q: inputVal
       })
+      this._showLoadingCenter()
       keywordModel.searchSubmit({
         'q': inputVal,
         'summary': 1,
@@ -67,6 +81,7 @@ Component({
         this.setData({
           bookList: res.data.books
         })
+        this._hideLoadingCenter()
         this.setTotal(res.data.total)
       })
     },
@@ -93,10 +108,14 @@ Component({
       }
     },
     _lock() {
-      this.data.loadingFlag = true
+      this.setData({
+        'loadingFlag': true
+      })
     },
     _unlocked() {
-      this.data.loadingFlag = false
+      this.setData({
+        'loadingFlag': false
+      })
     }
   }
 })

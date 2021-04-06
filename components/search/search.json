@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "yp-tag": "../tag/tag",
-    "yp-book": "../book/book"
+    "yp-book": "../book/book",
+    "yp-loading": "../loading/loading"
   }
 }
