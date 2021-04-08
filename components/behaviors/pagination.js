@@ -12,6 +12,11 @@ const paginationBehavior = Behavior({
     },
     setTotal(total) {
       this.data.total = total
+      if (!total) {
+        this.setData({
+          'noneResult': true
+        })
+      }
     },
     hasMore() {
       if (this.currentArrLength() >= this.data.total) {

@@ -18,6 +18,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    noneResult: false,
     historyList: [],
     hotList: [],
     searching: false,
@@ -46,7 +47,8 @@ Component({
       this.setData({
         searching: false,
         q: '',
-        bookList: []
+        bookList: [],
+        noneResult: false
       })
     },
     onCancel() {

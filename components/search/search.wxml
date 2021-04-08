@@ -38,4 +38,5 @@
   </view>
   <yp-loading wx:if="{{loadingCenter}}" class="loading-center"></yp-loading>
   <yp-loading class="loading" wx:if="{{loadingFlag}}"></yp-loading>
+  <view class="empty-tip" wx:if="{{noneResult}}">没有搜索到该书籍</view>
 </view>
